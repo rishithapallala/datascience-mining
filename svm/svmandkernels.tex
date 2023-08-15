@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\title{SVM AND KERNELS}
+\author{Rishitha Pallala }
+\date{14 August 2023}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+ Support vector machines are machine learning models which use thresholds ,soft margins and cross validation to train and test data sets.
+ when the threshold is taken the midpoint between the nearest unique data points , the threshold is called Maximal margin classifier. \\\\when the threshold is considered by cross validation it is called support vector classifier and the the observation points between and on the soft margins are called "support vectors".
+ \section{Support Vector Machines}
+  When the data has low dimensions, we move the data into higher dimension, and find the support vector classifier for the higher dimensions. Kernel functions are used to find the best support vector. Kernel functions calculate the relationship between pair of points in higher dimensions.
+  \subsection{Polynomial kernel }
+One example of polynomial kernel is given by equation\eqref{eq:1.1}, where a,b are original pair of data points, r is used for the coefficient of the polynomial and d is the degree of the polynomial. both r and d are determined by cross validation.
+\begin{align}
+    F= (a\times b + r)^d\label{eq:1.1}
+\end{align}
+\subsection{Radial kernel}
+The radial kernel is also called as the radial basis function(RBF),it behaves like a weighted nearest neighbour model.
+    One example of radial kernel is given by equation\eqref{eq:1.2}, where a,b are original pair of data points, and gamma ($\gamma$) is scaling factor determined by cross validation.The value given by the equation is the relationship between 2 points in infinite dimensions.
+    \begin{align}
+        Z=e^{-y{(a-b)}^2}\label{eq:1.2}
+    \end{align}
+    Hence, the svm model can be successfully used for classification,regression and outlier detection ,it is highly effective for higher dimensions and for data sets whose dimensions are higher then the sample size.
+\end{document} 
