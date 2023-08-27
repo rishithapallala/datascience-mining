@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{lipsum}
+\title{\textbf{NAIVE BAYES}\\EPOCH IIT HYDERABAD}
+\author{Rishitha Pallala }
+\date{18 August 2023}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+  Mulnomial naive bayes classifier and gaussian naive bayes classifier are commonly used versions of naive byes.Naive bayes is a probabilistic model ,usually used for classification problems ,that uses bayes theorem . it is naive as it assumes independence betweeen the features , that is the occurence of one feature is independent of the occurence of other features. 
+  \section{Multinomial Naive Bayes}
+   To understand naive bayes , we should understand conditional probability and baye's rule given by equation\eqref{eq:1.1} and equation\eqref{eq:1.2}
+   \begin{align}
+       P(A/B)=\dfrac{P(A\bigcap B)}{P(B)}\label{eq:1.1}\\
+       P(A/B)=\dfrac{P(B/A)\times P(A)}{P(B)}\label{eq:1.2}
+   \end{align}
+   for this classifier we use multiple features and extend the baye's rule assuming independence amongst the features, which is given by the equation \eqref{eq:1.3}.
+   \begin{align}
+       P(Y=C/X1,X2,X3..)=\dfrac{P(Y=C)\prod_{i=1}^nP(X_i/Y)}{\prod_{i=1}^nP(X_i)}\label{eq:1.3}
+   \end{align}
+   As the denominator is constant, it can be ignored. thus the improved rule is given by equation \eqref{eq:1.4}.
+    \begin{align}
+       P(C/X1,X2,X3..)={P(C)\prod_{i=1}^nP(X_i/C)}\label{eq:1.4}
+   \end{align}
+   \subsection{Assumptions}
+   1) All features are independent of each other.\\
+   2) All features have equal weightage, i.e all of the feature are considered for the final result.
+   \section{Gaussian Naive Bayes}
+   In Gaussian naive byes , the distribution of every feature is considered to be normal distribution. The pdf of the distribution is given by equation \eqref{eq:1.5}, which is for a condition $Y=y$,
+   \begin{align}
+       f(X_i/Y=y)=\dfrac{1}{\sqrt{2\pi{\sigma_y^2}}}e^{\dfrac{-{(x_i-\mu_y)}^2}{2\sigma_y^2}}\label{eq:1.5}
+   \end{align}
+   for various outputs, we calculate the log sums of the input features and the least sum will be used for decision making.
+   \begin{align}
+       P(C/X1,X2,X3..)=P(C)\sum_{i=1}^nlog{(f(X_i/C))}\label{eq:1.4}
+   \end{align}
+   We can use cross validation and determine the importance of the feature variables. the log sum is used to remove underflow.
+\end{document}
